@@ -1,8 +1,28 @@
-import neo4j from 'neo4j-driver'
+
+// This is only available from the non-public api...
+import {isNode, Node} from 'neo4j-driver-core';
 
 describe("neo4j-driver types", () => {
-  it("are a sub-object", () => {
-    const neo4jTypes = neo4j.types;
-    expect(neo4jTypes).toBeDefined();
+  describe("Node", () => {
+    it("can be constructed", () => {
+      const identity = 0;
+      const labels = ["A"];
+      const properties = {
+        k: "value"
+      }
+      const n = new Node(identity, labels, properties)
+      expect(n.identity).toBe(identity);
+      expect(n.labels).toEqual(expect.arrayContaining(labels));
+      expect(n.properties).toMatchObject(properties);
+    })
+  })
+  it("isNode", () => {
+    const identity = 0;
+    const labels = ["A"];
+    const properties = {
+      k: "value"
+    }
+    const n = new Node(identity, labels, properties)
+    expect(isNode(n)).toBeTruthy();
   })
 })
