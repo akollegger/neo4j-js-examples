@@ -1,0 +1,18 @@
+{
+  "name": "neo4j-js-examples",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "keywords": [],
+  "author": "Andreas Kollegger",
+  "license": "ISC",
+  "devDependencies": {
+    "jest": "^27.0.6"
+  },
+  "dependencies": {
+    "neo4j-driver": "^4.3.2"
+  }
+}
