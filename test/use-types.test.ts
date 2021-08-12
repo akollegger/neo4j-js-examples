@@ -16,15 +16,15 @@ describe("neo4j-driver types", () => {
       expect(n.labels).toEqual(expect.arrayContaining(labels));
       expect(n.properties).toMatchObject(properties);
     })
-  })
-  it("isNode", () => {
-    const identity = 0;
-    const labels = ["A"];
-    const properties = {
-      k: "value"
-    }
-    const n = new Node(identity, labels, properties)
-    expect(isNode(n)).toBeTruthy();
+    it("isNode", () => {
+      const identity = 0;
+      const labels = ["A"];
+      const properties = {
+        k: "value"
+      }
+      const n = new Node(identity, labels, properties)
+      expect(isNode(n)).toBeTruthy();
+    })
   })
 
   describe("Relationship", () => {
@@ -45,19 +45,19 @@ describe("neo4j-driver types", () => {
       expect(r.type).toEqual(type);
       expect(r.properties).toMatchObject(properties);
     })
+    it("isRelationship", () => {
+      const from = 0;
+      const to = 1;
+      const identity = 3;
+      const type = "R";
+      const properties = {
+        k: "value"
+      }
+      const r = new Relationship(
+        identity, from, to,
+        type, properties)
+      expect(isRelationship(r)).toBeTruthy();
+    })
   })
-  it("isRelationship", () => {
-    const from = 0;
-    const to = 1;
-    const identity = 3;
-    const type = "R";
-    const properties = {
-      k: "value"
-    }
-    const r = new Relationship(
-      identity, from, to,
-      type, properties)
-    expect(isRelationship(r)).toBeTruthy();
-  })
-
+  
 })
